@@ -28,10 +28,11 @@ Komorebic(cmd) {
 
 ;#Left::Komorebic("stack left")
 ;#Down::Komorebic("stack down")
-;#Up::Komorebic("stack up")
+#s::Komorebic("stack up")
 ;#Right::Komorebic("stack right")
-;!;::Komorebic("unstack")
-;![::Komorebic("cycle-stack previous")
+#u::Komorebic("unstack")
+#PgUp::Komorebic("cycle-stack previous")
+#PgDn::Komorebic("cycle-stack next")
 ;!]::Komorebic("cycle-stack next")
 
 ; Resize

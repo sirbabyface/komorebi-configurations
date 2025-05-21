@@ -78,8 +78,8 @@ QToolTip {
 }
 .komorebi-workspaces,
 .taskbar-widget {
-    border-top-right-radius: 14px;
-    border-bottom-right-radius: 14px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
     padding: 0 4px 0 0;
 }
 .komorebi-workspaces .offline-status {
@@ -507,3 +507,25 @@ QToolTip {
 /* if title_label is enabled: */
 .taskbar-widget .app-title {}
 .taskbar-widget .app-title.foreground {}
+
+/* komorebi Stack */
+.komorebi-stack {
+    margin: 0px;
+}
+.komorebi-stack .widget-container {
+    background-color: #282936; 
+    border-radius: 4px;
+}
+.komorebi-stack .window {
+    background-color: transparent;
+    border: none;
+    margin: 0px 4px;
+    padding: 0 4px;
+}
+.komorebi-stack .window.active {
+    background-color: #45475a;
+    border-radius: 4px;
+    height: auto;
+    margin: 4px 0px;
+    padding: 0 4px;
+}

@@ -28,6 +28,19 @@
     "fps": 60,
     "style": "EaseOutSine"
   },
+  "display_index_preferences": {
+    "0": "402NTJJC0684",
+    "1": "0"
+  },
+  "ignore_rules": [
+    {
+      "kind": "Title",
+      "id": "Call on mobile device",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "manage_rules": [
+  ],
   "monitors": [
     {
       "window_based_work_area_offset_limit": 1,
@@ -44,6 +57,14 @@
         },
         {
           "name": "Game",
+          "layout": "VerticalStack"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "Main",
           "layout": "VerticalStack"
         }
       ]

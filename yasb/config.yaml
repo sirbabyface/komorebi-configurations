@@ -9,8 +9,9 @@ komorebi:
   reload_command: "komorebic stop --ahk && komorebic start --ahk"
 bars:
   primary-bar:
+    #screens: ["*"]
+    screens: ["LG ULTRAWIDE"]
     enabled: true
-    screens: ["*"]
     class_name: "yasb-bar"
     alignment:
       position: "top"
@@ -40,7 +41,7 @@ bars:
       left: [
         "home",
         "komorebi_control",
-        "komorebi_workspaces",
+#        "komorebi_workspaces",
         "komorebi_active_layout",
         "shortcut1",
         "shortcut2",
@@ -49,19 +50,71 @@ bars:
       ]
       center: [
         "clock",
-        "taskbar"
+        "taskbar",
+        "komorebi_stack",
       ]
       right: [
-        "media",
+#        "media",
         "systray",
         "weather",
         "bluetooth",
         "microphone",
         "volume",
         "notifications",
-        "power_menu",
+#        "power_menu",
         
         ]
+  secondary-bar:
+    screens: ["\\\\.\\DISPLAY1"]
+    enabled: true
+    alignment:
+      position: "top"
+      center: false
+    animation:
+      enabled: true
+      duration: 1000
+    blur_effect:
+      enabled: true
+      acrylic: false
+      dark_mode: false
+      round_corners: false
+      round_corners_type: "normal"
+      border_color: "System"
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+      hide_on_fullscreen: false
+    dimensions:
+      width: "100%"
+      height: 48
+    padding:
+      top: 5
+      left: 5
+      bottom: 5
+      right: 5
+    widgets:
+      left: [
+        "komorebi_active_layout",
+        "shortcut1",
+      ]
+      center: [
+        "weather",
+        "clock",
+        "taskbar",
+        "komorebi_stack",
+      ]
+      right: [
+        "battery",
+        "systray",
+
+        "bluetooth",
+        "wifi",
+        "microphone",
+        "volume",
+        "notifications"
+      ]
+
+
 widgets:
   home:
     type: "yasb.home.HomeWidget"
@@ -86,11 +139,11 @@ widgets:
         left: 4
         bottom: 0
         right: 4
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [ 1, 1 ]
+      # label_shadow:
+      #   enabled: true
+      #   color: "black"
+      #   radius: 3
+      #   offset: [ 1, 1 ]
   shortcut2:
     type: "yasb.applications.ApplicationsWidget"
     options:
@@ -102,6 +155,18 @@ widgets:
         left: 4
         bottom: 0
         right: 4
+      # label_shadow:
+      #   enabled: true
+      #   color: "black"
+      #   radius: 3
+      #   offset: [ 1, 1 ]
+  battery:
+    type: "yasb.battery.BatteryWidget"
+    options:
+      label: "<span>{icon}</span>{percent}%"
+      label_alt: "{icon} {percent}% | time: {time_remaining}"
+      charging_options:
+        icon_format: "{charging_icon}"
       label_shadow:
         enabled: true
         color: "black"
@@ -164,7 +229,7 @@ widgets:
   clock:
     type: "yasb.clock.ClockWidget"
     options:
-      label: "\ueab0 {%A, %d %B \uf017 %H:%M:%S}"
+      label: "\ueab0 {%a, %d %B \uf017 %H:%M:%S}"
       label_alt: "{%A, %d %B %Y, %d %b %H:%M}"
       timezones: []
       callbacks:
@@ -190,11 +255,11 @@ widgets:
         direction: 'down'
         offset_top: 6
         offset_left: 0
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [ 1, 1 ]
+      # label_shadow:
+      #   enabled: true
+      #   color: "black"
+      #   radius: 3
+      #   offset: [ 1, 1 ]
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
@@ -251,6 +316,38 @@ widgets:
         on_left: "toggle_layout_menu"
         on_middle: "toggle_monocle"
         on_right: "prev_layout"
+  komorebi_stack:
+    type: "komorebi.stack.StackWidget"
+    options:
+      label_offline: "Offline"
+      label_window: ""
+      label_window_active: ""
+      label_no_window: "No Window"
+      label_zero_index: false
+      show_icons: "always"
+      icon_size: 24
+      max_length: 30
+      max_length_active: 50
+      max_length_ellipsis: ".."
+      hide_if_offline: false
+      show_only_stack: false
+      animation: true
+      enable_scroll_switching : true
+      # container_shadow:
+      #   enabled: true
+      #   color: "#000000"
+      #   offset: [0, 1]
+      #   radius: 2
+      # btn_shadow:
+      #   enabled: true
+      #   color: "#000000"
+      #   offset: [0, 1]
+      #   radius: 2
+      # label_shadow:
+      #   enabled: true
+      #   color: "#000000"
+      #   offset: [0, 1]
+      #   radius: 2
   weather:
     type: "yasb.weather.WeatherWidget"
     options:
@@ -342,12 +439,19 @@ widgets:
       label: "{data}"
       image_icon_size: 24
       app_list:
-        - { icon: "\uf422", launch: "search" }
-        - {icon: "\uf489", launch: "wt"} # launch terminal
-        - { icon: "\ueb03", launch: "cmd /c Taskmgr" }
-        - { icon: "\udb80\ude39",launch: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" }
-        - { icon: "\uf232", launch: "" }
-        - { icon: "\udb82\ude1e", launch: "" }
+        #- { icon: "\uf422", launch: "search" }
+        - { icon: "\uf489", launch: "wt"} # launch terminal
+        - { icon: "\udb83\ude10", launch: "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --profile-directory=\"Profile 1\""}
+        #- { icon: "\ueb03", launch: "cmd /c Taskmgr" }
+        - { icon: "\udb80\udcd6", launch: "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --profile-directory=\"Profile 0\"" }
+        - { icon: "\uf232", launch: 'C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2518.3.0_x64__cv1g1gvanyjgm\WhatsApp.exe' }
+        - { icon: "\udb82\ude1e", launch: 'C:\Users\TiagoCorreia\AppData\Local\Programs\Microsoft VS Code\Code.exe' }
+        - { icon: "\uec02", launch: 'C:\Users\TiagoCorreia\AppData\Local\fman\fman.exe' }
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 5
+        offset: [ 1, 1 ]
   notifications:
     type: "yasb.notifications.NotificationsWidget"
     options:
@@ -394,6 +498,31 @@ widgets:
         bluetooth_connected: "\udb80\udcb1"
       callbacks:
         on_right: "exec cmd.exe /c start ms-settings:bluetooth"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+  wifi:
+    type: "yasb.wifi.WifiWidget"
+    options:
+      label: "<span>{wifi_icon}</span>"
+      label_alt: "{wifi_name} {wifi_strength}%"
+      update_interval: 5000
+      callbacks:
+        on_left: "toggle_label"
+        on_middle: "do_nothing"
+        on_right: "exec cmd.exe /c start ms-settings:network"
+      ethernet_label: "<span>{wifi_icon}</span>"
+      ethernet_label_alt: "<span>{wifi_icon}</span>{ip_addr}"
+      ethernet_icon: "\ueba9"
+      wifi_icons: [
+        "\udb82\udd2e",  # Icon for 0% strength
+        "\udb82\udd1f",  # Icon for 1-24% strength 
+        "\udb82\udd22",  # Icon for 25-49% strength
+        "\udb82\udd25",  # Icon for 50-74% strength
+        "\udb82\udd28"   # Icon for 75-100% strength
+      ]
       label_shadow:
         enabled: true
         color: "black"
