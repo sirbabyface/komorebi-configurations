@@ -334,7 +334,7 @@ QToolTip {
 
 .systray .button {
     border-radius: 4px;
-    padding: 2px 2px;
+    padding: 5px 3px;
 }
 
 .systray .button:hover {
@@ -349,7 +349,7 @@ QToolTip {
 .systray .unpinned-visibility-btn {
     border-radius: 4px;
     height: 20px;
-    width: 16px;
+    width: 20px;
 }
 
 .systray .unpinned-visibility-btn:checked {
@@ -357,7 +357,7 @@ QToolTip {
 }
 
 .systray .unpinned-visibility-btn:hover {
-    border: 1px solid #AAAAAA;
+    border: 3px solid #AAAAAA;
     border-radius: 4px;
     border-color: #AAAAAA;
 }

@@ -5,4 +5,5 @@ Copy-Item -Path "$env:USERPROFILE\komorebi.ahk" -Destination .\komorebi\
 Copy-Item -Path "$env:USERPROFILE\komorebi.json" -Destination .\komorebi\
 Copy-Item -Path "$env:USERPROFILE\.config\yasb\config.yaml" -Destination .\yasb\
 Copy-Item -Path "$env:USERPROFILE\.config\yasb\styles.css" -Destination .\yasb\
+Copy-Item -Path "$PROFILE" -Destination .\
 

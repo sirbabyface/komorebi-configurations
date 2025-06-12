@@ -11,16 +11,10 @@
   "border_style": "System",
   "mouse_follows_focus": false,
   "border_colours": {
-    "single": "#42a5f5",
-    "stack": "#00a542",
-    "monocle": "#ff3399",
-    "unfocused": "#808080"
-  },
-  "theme": {
-    "palette": "Base16",
-    "name": "Ashes",
-    "unfocused_border": "Base03",
-    "bar_accent": "Base0D"
+    "single": "#f3ae35",
+    "stack": "#4b95e9",
+    "monocle": "#ec1021",
+    "unfocused": "#2d2d2d"
   },
   "animation": {
     "enabled": true,
@@ -28,19 +22,120 @@
     "fps": 60,
     "style": "EaseOutSine"
   },
+  "ignore_rules": [
+    [
+      {
+        "kind": "Exe",
+        "id": "Flow.Launcher.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "matching_strategy": "Equals",
+        "id": "Action keyword Setting"
+      }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "id": "fman.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "matching_strategy": "StartsWith",
+        "id": "Packing"
+      }
+    ],
+    [
+      {
+        "kind": "Title",
+        "matching_strategy": "StartsWith",
+        "id": "Bitwarden"
+      }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "matching_strategy": "Equals",
+        "id": "VC_redist.x64.exe"
+      }
+    ]
+  ],
+  "manage_rules": [
+    [
+      {
+        "kind": "Exe",
+        "id": "paintdotnet.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "matching_strategy": "Contains",
+        "id": "Paint.NET"
+      }
+    ]
+  ],
+  "floating_applications": [
+    [
+      {
+        "kind": "Title",
+        "id": "ShareX - ",
+        "matching_strategy": "StartsWith"
+      },
+      {
+        "kind": "Exe",
+        "id": "ShareX.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
+    [
+      {
+        "kind": "Title",
+        "matching_strategy": "Equals",
+        "id": "Phone Link"
+      },
+      {
+        "kind": "Exe",
+        "matching_strategy": "Equals",
+        "id": "PhoneExperienceHost.exe"
+      }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "matching_strategy": "Equals",
+        "id": "WindowsTerminal.exe"
+      }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "matching_strategy": "Equals",
+        "id": "Taskmgr.exe"
+      }
+    ],
+    [
+      {
+        "kind": "Title",
+        "matching_strategy": "Equals",
+        "id": "Window Spy for AHKv2"
+      }
+    ]
+  ],
+  "remove_titlebar_applications":[
+    [
+      {
+        "kind": "Exe",
+        "matching_strategy": "Equals",
+        "id": "fman.exe"
+      }
+    ]
+  ],
   "display_index_preferences": {
     "0": "402NTJJC0684",
     "1": "0"
   },
-  "ignore_rules": [
-    {
-      "kind": "Title",
-      "id": "Call on mobile device",
-      "matching_strategy": "Equals"
-    }
-  ],
-  "manage_rules": [
-  ],
   "monitors": [
     {
       "window_based_work_area_offset_limit": 1,
@@ -54,10 +149,6 @@
         {
           "name": "Main",
           "layout": "UltrawideVerticalStack"
-        },
-        {
-          "name": "Game",
-          "layout": "VerticalStack"
         }
       ]
     },

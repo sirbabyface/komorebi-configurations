@@ -39,12 +39,13 @@ bars:
       right: 5
     widgets:
       left: [
-        "home",
-        "komorebi_control",
-#        "komorebi_workspaces",
+        # "home",
+        # "komorebi_control",
+        # "komorebi_workspaces",
         "komorebi_active_layout",
         "shortcut1",
         "shortcut2",
+        "weather",
         "apps",
         #"active_window",
       ]
@@ -54,14 +55,13 @@ bars:
         "komorebi_stack",
       ]
       right: [
-#        "media",
+        # "media",
         "systray",
-        "weather",
         "bluetooth",
         "microphone",
         "volume",
         "notifications",
-#        "power_menu",
+        # "power_menu",
         
         ]
   secondary-bar:
@@ -96,24 +96,60 @@ bars:
       left: [
         "komorebi_active_layout",
         "shortcut1",
+        "weather",
       ]
       center: [
-        "weather",
         "clock",
         "taskbar",
         "komorebi_stack",
       ]
       right: [
-        "battery",
         "systray",
-
         "bluetooth",
         "wifi",
+        "battery",
         "microphone",
         "volume",
-        "notifications"
+        # "notifications"
       ]
+  right-bar:
+    screens: ["\\\\.\\DISPLAY1"]
+    enabled: false
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+      center: false
 
+    animation:
+      enabled: true
+      duration: 1000
+    blur_effect:
+      enabled: true
+      acrylic: false
+      dark_mode: false
+      round_corners: false
+      round_corners_type: "normal"
+      border_color: "System"
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+      hide_on_fullscreen: false
+    dimensions:
+      width: 400
+      height: 48
+    padding:
+      top: 5
+      left: 5
+      bottom: 5
+      right: 5
+    widgets:
+      right: [
+        "systray",
+        "bluetooth",
+        "wifi",
+        "battery",
+        "volume",
+      ]
 
 widgets:
   home:
@@ -176,6 +212,7 @@ widgets:
     type: "yasb.taskbar.TaskbarWidget"
     options:
       icon_size: 24
+      monitor_exclusive: True
       animation:
         enabled: true
         duration: 200
@@ -186,7 +223,7 @@ widgets:
         min_length: 10
         max_length: 30
       ignore_apps:
-        processes: []
+        processes: ["wtq.exe", "wt.exe"]
         titles: []
         classes: []
       container_padding: 
@@ -226,6 +263,9 @@ widgets:
       max_length: 56
       max_length_ellipsis: "..."
       monitor_exclusive: true
+      ignore_apps:
+        title:
+          - "ShareX - Editor Menu"
   clock:
     type: "yasb.clock.ClockWidget"
     options:
@@ -330,7 +370,7 @@ widgets:
       max_length_active: 50
       max_length_ellipsis: ".."
       hide_if_offline: false
-      show_only_stack: false
+      show_only_stack: true
       animation: true
       enable_scroll_switching : true
       # container_shadow:
@@ -468,9 +508,9 @@ widgets:
     options:
       class_name: "systray"
       label_collapsed: "⯇"
-      label_expanded: "⯈"
-      label_position: "right" # Can be "left" or "right"
-      icon_size: 24 # Can be any integer between 8 and 64
+      label_expanded: "\uf00d"
+      label_position: "left" # Can be "left" or "right"
+      icon_size: 16 # Can be any integer between 8 and 64
       pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
       show_unpinned: false
       show_unpinned_button: true
