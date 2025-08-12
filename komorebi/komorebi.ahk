@@ -1,4 +1,4 @@
-;#Requires AutoHotkey v2.0.2
+#Requires AutoHotkey v2.0.2
 #SingleInstance Force
 
 Komorebic(cmd) {
@@ -6,7 +6,7 @@ Komorebic(cmd) {
 }
 
 YasbRestart() {
-    RunWait("yasbc stop", , "Hide")
+    RunWait("yasbc stop --force", , "Hide")
     RunWait("yasbc start", , "Hide")
 }
 
@@ -16,7 +16,7 @@ YasbStart() {
 }
 
 #y::YasbRestart()
-#+y::YasbStart()
+;#+y::YasbStart()
 
 
 #w::Komorebic("close")

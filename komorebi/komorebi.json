@@ -17,11 +17,12 @@
     "unfocused": "#2d2d2d"
   },
   "animation": {
-    "enabled": true,
+    "enabled": false,
     "duration": 250,
     "fps": 60,
     "style": "EaseOutSine"
   },
+  "scrolling-layout-columns": 1,
   "ignore_rules": [
     [
       {
@@ -33,6 +34,18 @@
         "kind": "Title",
         "matching_strategy": "Equals",
         "id": "Action keyword Setting"
+      }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "id": "Flow.Launcher.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "matching_strategy": "Equals",
+        "id": "Restart Computer"
       }
     ],
     [
@@ -120,6 +133,13 @@
         "kind": "Title",
         "matching_strategy": "Equals",
         "id": "Window Spy for AHKv2"
+      }
+    ],
+    [
+      {
+        "kind": "Title",
+        "matching_strategy": "StartsWith",
+        "id": "Sign in - Google Accounts"
       }
     ]
   ],

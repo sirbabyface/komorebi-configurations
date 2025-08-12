@@ -10,7 +10,7 @@ komorebi:
 bars:
   primary-bar:
     #screens: ["*"]
-    screens: ["LG ULTRAWIDE"]
+    screens: ["LG ULTRAWIDE", "VG27AQL1A"]
     enabled: true
     class_name: "yasb-bar"
     alignment:
@@ -45,6 +45,7 @@ bars:
         "komorebi_active_layout",
         "shortcut1",
         "shortcut2",
+        "km-toggle-lock",
         "weather",
         "apps",
         #"active_window",
@@ -52,7 +53,8 @@ bars:
       center: [
         "clock",
         "taskbar",
-        "komorebi_stack",
+#        "komorebi_stack",
+        "neuraspace_calendar",
       ]
       right: [
         # "media",
@@ -96,12 +98,13 @@ bars:
       left: [
         "komorebi_active_layout",
         "shortcut1",
+        "km-toggle-lock",
         "weather",
       ]
       center: [
         "clock",
         "taskbar",
-        "komorebi_stack",
+#        "komorebi_stack",
       ]
       right: [
         "systray",
@@ -191,6 +194,17 @@ widgets:
         left: 4
         bottom: 0
         right: 4
+  km-toggle-lock:
+    type: "yasb.applications.ApplicationsWidget"
+    options:
+      label: ""
+      app_list:
+        - {icon: "\uf456", launch: "komorebic toggle-lock"}
+      container_padding: 
+        top: 0
+        left: 4
+        bottom: 0
+        right: 4
       # label_shadow:
       #   enabled: true
       #   color: "black"
@@ -224,7 +238,7 @@ widgets:
         max_length: 30
       ignore_apps:
         processes: ["wtq.exe", "wt.exe"]
-        titles: []
+        titles: ["ShareX - Editor menu"]
         classes: []
       container_padding: 
         top: 0
@@ -332,6 +346,7 @@ widgets:
           "horizontal_stack",
           "ultrawide_vertical_stack",
           "right_main_vertical_stack",
+          "scrolling",
         ]
       layout_icons:
         bsp: "\uebeb"
@@ -342,6 +357,7 @@ widgets:
         horizontal_stack: "\uebf0"
         ultrawide_vertical_stack: "\uebee"
         right_main_vertical_stack: "\uebf1"
+        scrolling: "\udb80\udd37"
         monocle: "\uf06f"
         maximised: "\uf06f"
         floating: "\uf2d2"
@@ -568,3 +584,49 @@ widgets:
         color: "black"
         radius: 3
         offset: [ 1, 1 ]
+
+  neuraspace_calendar:
+    type: "yasb.google_meet.GoogleMeetWidget"
+    options:
+      env_var: "YASB_ICAL_URL"         # iCal URL environment variable name
+      meeting_filter: "online"         # all | online | in_person
+      timezone_name: "Europe/Lisbon"   # optional; IANA timezone
+      horizon_hours: 12               # null=end-of-day, or number of hours
+      next_time_format: "%H:%M"
+
+      # Label placeholders
+      label: "{next_time} {next_summary}"
+      label_alt: "Today events ({countdown})"
+
+      update_interval: 600000           # 10 minutes (ms)
+
+      # Popup menu options
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+
+      icons:
+        online: "🔗"  # displayed when event is online
+        time: "🕒"    # prefix for time in popup
+
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+
+      animation:
+        enabled: true
+        type: "fadeInOut"
+        duration: 200
