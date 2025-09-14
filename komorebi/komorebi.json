@@ -39,6 +39,13 @@
     [
       {
         "kind": "Exe",
+        "id": "TopNotify.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
+    [
+      {
+        "kind": "Exe",
         "id": "Flow.Launcher.exe",
         "matching_strategy": "Equals"
       },
@@ -72,6 +79,30 @@
         "kind": "Exe",
         "matching_strategy": "Equals",
         "id": "VC_redist.x64.exe"
+      }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "id": "yasb.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "matching_strategy": "StartsWith",
+        "id": "Failed"
+      }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "id": "slack.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "matching_strategy": "Equals",
+        "id": "Neuraspace"
       }
     ]
   ],

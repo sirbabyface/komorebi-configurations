@@ -67,7 +67,7 @@ QToolTip {
 .taskbar-widget {
     background-color: var(--surface1);
     margin: 3px 0 3px 0;
-    border-radius: 12px;
+    border-radius: 5px;
     border: 1px solid var(--surface0);
 }
 .komorebi-workspaces .widget-container,
@@ -494,16 +494,25 @@ QToolTip {
 }
 
 /* Taskbar */
-/*.taskbar-widget {
+.taskbar-widget {
     padding: 0;
     margin: 0;
-}*/
-.taskbar-widget .app-icon {
-    padding:6px 6px;
 }
-.taskbar-widget .app-icon.foreground{
+.taskbar-widget .app-container {
+    padding:0px 4px ;
+    margin: 0px;
+}
+.taskbar-widget .app-container:hover {
     background-color: var(--surface2);
 }
+.taskbar-widget .app-container .foreground:hover {
+    background-color: var(--surface0);
+    transition-duration: 400ms;
+    color: var(--overlay0);
+    opacity: 0.5;
+}
+
+
 /* if title_label is enabled: */
 .taskbar-widget .app-title {}
 .taskbar-widget .app-title.foreground {}

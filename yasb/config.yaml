@@ -9,7 +9,7 @@ komorebi:
   reload_command: "komorebic stop --ahk && komorebic start --ahk"
 bars:
   primary-bar:
-    #screens: ["*"]
+    #screens: ["LG ULTRAWIDE"]
     screens: ["LG ULTRAWIDE", "VG27AQL1A"]
     enabled: true
     class_name: "yasb-bar"
@@ -54,7 +54,7 @@ bars:
         "clock",
         "taskbar",
 #        "komorebi_stack",
-        "neuraspace_calendar",
+        # "neuraspace_calendar",
       ]
       right: [
         # "media",
@@ -67,7 +67,8 @@ bars:
         
         ]
   secondary-bar:
-    screens: ["\\\\.\\DISPLAY1"]
+    #screens: ["\\\\.\\DISPLAY1"]
+    screens: ["*"]
     enabled: true
     alignment:
       position: "top"
@@ -289,6 +290,11 @@ widgets:
       callbacks:
         on_left: "toggle_calendar"
       # on_right: "toggle_label"
+      calendar:
+        blur: True
+        show_holidays: True
+        holiday_color: "#FF6464"
+        country_code: "PT"
   komorebi_control:
     type: "komorebi.control.KomorebiControlWidget"
     options:
@@ -585,48 +591,48 @@ widgets:
         radius: 3
         offset: [ 1, 1 ]
 
-  neuraspace_calendar:
-    type: "yasb.google_meet.GoogleMeetWidget"
-    options:
-      env_var: "YASB_ICAL_URL"         # iCal URL environment variable name
-      meeting_filter: "online"         # all | online | in_person
-      timezone_name: "Europe/Lisbon"   # optional; IANA timezone
-      horizon_hours: 12               # null=end-of-day, or number of hours
-      next_time_format: "%H:%M"
+  # neuraspace_calendar:
+  #   type: "yasb.google_meet.GoogleMeetWidget"
+  #   options:
+  #     env_var: "YASB_ICAL_URL"         # iCal URL environment variable name
+  #     meeting_filter: "online"         # all | online | in_person
+  #     timezone_name: "Europe/Lisbon"   # optional; IANA timezone
+  #     horizon_hours: 12               # null=end-of-day, or number of hours
+  #     next_time_format: "%H:%M"
 
-      # Label placeholders
-      label: "{next_time} {next_summary}"
-      label_alt: "Today events ({countdown})"
+  #     # Label placeholders
+  #     label: "{next_time} {next_summary}"
+  #     label_alt: "Today events ({countdown})"
 
-      update_interval: 600000           # 10 minutes (ms)
+  #     update_interval: 600000           # 10 minutes (ms)
 
-      # Popup menu options
-      menu:
-        blur: true
-        round_corners: true
-        round_corners_type: "normal"
-        border_color: "System"
-        alignment: "right"
-        direction: "down"
-        offset_top: 6
-        offset_left: 0
+  #     # Popup menu options
+  #     menu:
+  #       blur: true
+  #       round_corners: true
+  #       round_corners_type: "normal"
+  #       border_color: "System"
+  #       alignment: "right"
+  #       direction: "down"
+  #       offset_top: 6
+  #       offset_left: 0
 
-      icons:
-        online: "🔗"  # displayed when event is online
-        time: "🕒"    # prefix for time in popup
+  #     icons:
+  #       online: "🔗"  # displayed when event is online
+  #       time: "🕒"    # prefix for time in popup
 
-      callbacks:
-        on_left: "toggle_menu"
-        on_middle: "do_nothing"
-        on_right: "toggle_label"
+  #     callbacks:
+  #       on_left: "toggle_menu"
+  #       on_middle: "do_nothing"
+  #       on_right: "toggle_label"
 
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
+  #     container_padding:
+  #       top: 0
+  #       left: 0
+  #       bottom: 0
+  #       right: 0
 
-      animation:
-        enabled: true
-        type: "fadeInOut"
-        duration: 200
+  #     animation:
+  #       enabled: true
+  #       type: "fadeInOut"
+  #       duration: 200
